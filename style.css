@@ -421,31 +421,217 @@ section {
 }
 
 /* ===============================
-   RESPONSIVE
+   CONTACT FORM STYLING
+   Neon Glass Theme
 ================================= */
+
+.contact-form-wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 247, 255, 0.25);
+  border-radius: 22px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(0, 247, 255, 0.08);
+  transition: 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0, 247, 255, 0.18);
+}
+
+/* heading */
+.contact-form h3 {
+  font-size: 28px;
+  color: #00f7ff;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 12px #00f7ff;
+}
+
+/* spacing */
+.form-group {
+  margin-bottom: 22px;
+}
+
+/* labels */
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* inputs + textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s ease;
+  resize: none;
+}
+
+/* placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #888;
+}
+
+/* focus glow */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00f7ff;
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* textarea */
+.form-group textarea {
+  min-height: 140px;
+}
+
+/* full button */
+.btn-full {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+/* icon spacing */
+.btn-full i {
+  margin-right: 8px;
+}
+
+/* hover */
+.btn-full:hover {
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   BURGER MENU / MOBILE NAVBAR
+================================= */
+
+/* hide burger on desktop */
+.nav-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 247, 255, 0.25);
+  border-radius: 12px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  transition: 0.3s ease;
+}
+
+.nav-toggle:hover {
+  box-shadow: 0 0 15px rgba(0, 247, 255, 0.25);
+}
+
+/* burger lines */
+.hamburger {
+  width: 24px;
+  height: 2px;
+  background: #00f7ff;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 8px #00f7ff;
+}
+
+/* active animation -> X */
+.nav-toggle.active .hamburger:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .hamburger:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===============================
+   MOBILE MENU
+================================= */
+/* ==========================================
+   COMBINED ALL @media (max-width: 768px)
+   Replace ALL your separate media queries
+========================================== */
+
 @media (max-width: 768px) {
-  .footer {
-    padding: 50px 8% 25px;
+  /* ---------- NAVBAR ---------- */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 85px;
+    left: 5%;
+    width: 90%;
+
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 247, 255, 0.25);
+    border-radius: 18px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    box-shadow: 0 0 25px rgba(0, 247, 255, 0.15);
+  }
+
+  .nav-menu li {
+    list-style: none;
     text-align: center;
   }
 
-  .footer-content,
-  .footer-bottom {
-    flex-direction: column;
-    align-items: center;
+  .nav-link {
+    display: block;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
   }
 
-  .footer-links {
-    justify-content: center;
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(0, 247, 255, 0.08);
+    color: #00f7ff;
   }
 
-  .footer-brand {
-    max-width: 100%;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  /* ---------- HERO ---------- */
   .hero-container {
     flex-direction: column;
     text-align: center;
@@ -465,7 +651,37 @@ section {
     height: 280px;
   }
 
-  .nav-menu {
-    display: none;
+  /* ---------- CONTACT ---------- */
+  .contact-form {
+    padding: 30px 22px;
+  }
+
+  .contact-form h3 {
+    font-size: 24px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 13px 14px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    padding: 50px 8% 25px;
+    text-align: center;
+  }
+
+  .footer-content,
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .footer-brand {
+    max-width: 100%;
   }
 }
